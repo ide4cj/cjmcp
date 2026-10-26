@@ -1,6 +1,6 @@
 # Contributing
 
-## Cocogitto
+## Commits and pull requests
 
 Install [Cocogitto](https://docs.cocogitto.io/guide/#installation) (`cog`), then
 enable the commit message hook for your clone:
