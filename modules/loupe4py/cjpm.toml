@@ -1,0 +1,26 @@
+[package]
+cjc-version = "1.3.0"
+name = "loupe4py"
+organization = ""
+description = "nothing here"
+version = "1.0.0"
+target-dir = ""
+script-dir = ""
+output-type = "static"
+compile-option = "-Woff unused"
+override-compile-option = ""
+link-option = ""
+package-configuration = {}
+
+[dependencies]
+loupe = { git = "https://github.com/ide4cj/cjls.git", output-type = "static" }
+
+# `-O2` on a release build alone: `-g` (the coverage's) builds unoptimized
+[target.aarch64-apple-darwin.release]
+compile-option = "-O2"
+
+[target.x86_64-unknown-linux-gnu.release]
+compile-option = "-O2"
+
+[target.x86_64-w64-mingw32.release]
+compile-option = "-O2"

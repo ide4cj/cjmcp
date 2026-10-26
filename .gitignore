@@ -1,0 +1,27 @@
+.cache
+.vscode
+build-script-cache
+cov_output
+/coverage
+target
+/third_party
+*.gcda
+*.macrocall
+*.flag
+*.dylib
+*.cjo
+
+# Local agent configuration and worktrees are not repository inputs.
+/.claude/
+/.codex/
+
+# the third-party test suites, as tests/corpora/fetch.py puts them
+.corpora
+
+# end-to-end tests
+.venv
+__pycache__
+.pytest_cache
+
+# tests/perf: what the servers wrote to stderr
+perf-logs

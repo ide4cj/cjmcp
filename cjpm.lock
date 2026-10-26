@@ -1,0 +1,4 @@
+version = 0
+
+[requires]
+  loupe = {git = "https://github.com/ide4cj/cjls.git", commitId = "371069c9312b8ddb4cc5045349937235218693f8", output-type = "static"}
