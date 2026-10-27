@@ -13,7 +13,8 @@ link-option = ""
 package-configuration = {}
 
 [dependencies]
-loupe = { git = "https://github.com/ide4cj/cjls.git", output-type = "static" }
+loupe = { git = "https://github.com/ide4cj/cjls.git" }
+py_interop = { git = "https://gitcode.com/belyaev-mikhail/cangjie_python_reverse_interop.git" }
 
 # `-O2` on a release build alone: `-g` (the coverage's) builds unoptimized
 [target.aarch64-apple-darwin.release]
