@@ -1,5 +1,0 @@
-version = 0
-
-[requires]
-  loupe = {git = "https://github.com/ide4cj/cjls.git", commitId = "371069c9312b8ddb4cc5045349937235218693f8", output-type = "static"}
-  py_interop = {git = "https://gitcode.com/belyaev-mikhail/cangjie_python_reverse_interop.git", commitId = "c66c1825df7f8eff95244fce4cdc8f273a215dd7"}
