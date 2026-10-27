@@ -1,5 +1,5 @@
 [workspace]
-members = ["modules/loupe4py"]
+members = ["modules/loupe4py", "modules/loupe4py_example"]
 build-members = []
 test-members = []
 compile-option = "-Woff unused"
@@ -7,6 +7,11 @@ override-compile-option = ""
 link-option = ""
 target-dir = ""
 script-dir = ""
+
+# loupe uses a path dependency on rope inside the same upstream workspace.
+# Match it to the direct dependency needed by the Python wrapper.
+[replace]
+rope = { git = "https://github.com/ide4cj/cjls.git" }
 
 [profile]
 experimental = true

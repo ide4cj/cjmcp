@@ -1,0 +1,11 @@
+[package]
+name = "loupe4py_example"
+version = "0.1.0"
+cjc-version = "1.3.0"
+description = "Run a Python script against an embedded loupe analysis session"
+output-type = "executable"
+compile-option = "-Woff unused"
+
+[dependencies]
+loupe4py = { path = "../loupe4py" }
+py_interop = { git = "https://gitcode.com/belyaev-mikhail/cangjie_python_reverse_interop.git" }
