@@ -1,5 +1,26 @@
-version = 0
+version = 1
 
-[requires]
-  loupe = {git = "https://github.com/ide4cj/cjls.git", commitId = "371069c9312b8ddb4cc5045349937235218693f8", output-type = "static"}
-  py_interop = {git = "https://gitcode.com/belyaev-mikhail/cangjie_python_reverse_interop.git", commitId = "c66c1825df7f8eff95244fce4cdc8f273a215dd7"}
+[requires."fjson"]
+version = "1.0.0"
+source = "git+https://github.com/ide4cj/cjls.git#57ef99220febc858e5f2d6d12f8cc1dd525cdd01"
+dependencies = ["fnum"]
+
+[requires."jsonrpc"]
+version = "1.0.0"
+source = "git+https://github.com/ide4cj/cjls.git#371069c9312b8ddb4cc5045349937235218693f8"
+dependencies = ["fjson", "stdxx"]
+
+[requires."loupe"]
+version = "0.1.0"
+source = "git+https://github.com/ide4cj/cjls.git#371069c9312b8ddb4cc5045349937235218693f8"
+dependencies = ["calca", "cjformat", "cjo", "cjsyntax", "ginkgo", "index_map", "platform", "rope"]
+
+[requires."platform"]
+version = "0.1.0"
+source = "git+https://github.com/ide4cj/cjls.git#57ef99220febc858e5f2d6d12f8cc1dd525cdd01"
+dependencies = []
+
+[requires."py_interop"]
+version = "1.0.0"
+source = "git+https://gitcode.com/belyaev-mikhail/cangjie_python_reverse_interop.git#9bc5878be95e42d526ff283c31f8e1bb480dcb4e"
+dependencies = []
