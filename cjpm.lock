@@ -2,7 +2,7 @@ version = 1
 
 [requires."fjson"]
 version = "1.0.0"
-source = "git+https://github.com/ide4cj/cjls.git#57ef99220febc858e5f2d6d12f8cc1dd525cdd01"
+source = "git+https://github.com/ide4cj/cjls.git#25ced854e0ca7012eb28a31ea6b8b8fe7db1c131"
 dependencies = ["fnum"]
 
 [requires."jsonrpc"]
@@ -17,7 +17,7 @@ dependencies = ["calca", "cjformat", "cjo", "cjsyntax", "ginkgo", "index_map", "
 
 [requires."platform"]
 version = "0.1.0"
-source = "git+https://github.com/ide4cj/cjls.git#57ef99220febc858e5f2d6d12f8cc1dd525cdd01"
+source = "git+https://github.com/ide4cj/cjls.git#25ced854e0ca7012eb28a31ea6b8b8fe7db1c131"
 dependencies = []
 
 [requires."py_interop"]
