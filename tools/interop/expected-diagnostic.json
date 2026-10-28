@@ -1,0 +1,375 @@
+{
+  "interop_revision": "ded6e681bea82f85d0b8ceb2025d0b38e52ad14d",
+  "compile": {
+    "control": {
+      "exit": 0
+    },
+    "generic": {
+      "exit": 1,
+      "contains": [
+        "generic type should be used with type argument"
+      ]
+    },
+    "concrete_generic": {
+      "exit": 0
+    },
+    "unbound_extend": {
+      "exit": 1,
+      "contains": [
+        "undeclared identifier 'Existing__PyInteropNativeDescriptor'"
+      ]
+    },
+    "bound_extend": {
+      "exit": 0
+    },
+    "enum_result": {
+      "exit": 1,
+      "contains": [
+        "is used before being defined"
+      ]
+    },
+    "enum_payload": {
+      "exit": 1,
+      "contains": [
+        "macro evaluation has failed"
+      ]
+    },
+    "private_ctor": {
+      "exit": 1,
+      "contains": [
+        "no matching constructor for call 'Hidden'"
+      ]
+    },
+    "mutable_struct": {
+      "exit": 1,
+      "contains": [
+        "cannot assign to immutable value"
+      ]
+    },
+    "array_pair_out": {
+      "exit": 1,
+      "contains": [
+        "no matching function declaration for function call 'toNativePyObj'"
+      ]
+    },
+    "ignored_field": {
+      "exit": 0
+    },
+    "inheritance_implicit": {
+      "exit": 1,
+      "contains": [
+        "ambiguous match for function call 'pyClass'"
+      ]
+    },
+    "callback_out": {
+      "exit": 1,
+      "contains": [
+        "no matching function declaration for function call 'toNativePyObj'"
+      ]
+    },
+    "domain": {
+      "exit": 0
+    },
+    "external_interface": {
+      "exit": 1,
+      "contains": [
+        "imported type 'Value' cannot extend imported interface"
+      ]
+    },
+    "external_converter": {
+      "exit": 0
+    },
+    "bound_domain": {
+      "exit": 0
+    },
+    "bound_cross_extend": {
+      "exit": 1,
+      "contains": [
+        "undeclared identifier 'Bound__PyInteropNativeDescriptor'"
+      ]
+    }
+  },
+  "runtime": {
+    "inheritance": {
+      "exit": 0,
+      "contains": [
+        "PASS"
+      ]
+    },
+    "selection": {
+      "exit": 0,
+      "contains": [
+        "PASS"
+      ]
+    },
+    "overloads": {
+      "exit": 0,
+      "contains": [
+        "PASS"
+      ]
+    },
+    "extension": {
+      "exit": 0,
+      "contains": [
+        "PASS"
+      ]
+    },
+    "class_mutation": {
+      "exit": 0,
+      "contains": [
+        "PASS"
+      ]
+    },
+    "invalid_setter": {
+      "exit": 0,
+      "contains": [
+        "PASS"
+      ]
+    },
+    "invalid_ctor": {
+      "exit": 1,
+      "contains": [
+        "TypeError: Illegal arguments"
+      ]
+    },
+    "forged_identity": {
+      "exit": 1,
+      "contains": [
+        "NoneValueException"
+      ]
+    },
+    "registration": {
+      "exit": 0,
+      "contains": [
+        "PASS"
+      ]
+    },
+    "unicode": {
+      "exit": 0,
+      "contains": [
+        "PASS"
+      ]
+    },
+    "nul_string": {
+      "exit": 1,
+      "contains": [
+        "AssertionError:"
+      ]
+    },
+    "record": {
+      "exit": 0,
+      "contains": [
+        "PASS"
+      ]
+    },
+    "array_string": {
+      "exit": 0,
+      "contains": [
+        "PASS"
+      ]
+    },
+    "array_record": {
+      "exit": 0,
+      "contains": [
+        "PASS"
+      ]
+    },
+    "option": {
+      "exit": 0,
+      "contains": [
+        "PASS"
+      ]
+    },
+    "nested": {
+      "exit": 0,
+      "contains": [
+        "PASS"
+      ]
+    },
+    "pair": {
+      "exit": 0,
+      "contains": [
+        "PASS"
+      ]
+    },
+    "array_pair_in": {
+      "exit": 0,
+      "contains": [
+        "PASS"
+      ]
+    },
+    "triple_out": {
+      "exit": 0,
+      "contains": [
+        "PASS"
+      ]
+    },
+    "triple_in": {
+      "exit": 1,
+      "contains": [
+        "returned NULL without setting an exception"
+      ]
+    },
+    "triple_short": {
+      "exit": 1,
+      "contains": [
+        "returned a result with an exception set"
+      ]
+    },
+    "callback": {
+      "exit": 0,
+      "contains": [
+        "PASS"
+      ]
+    },
+    "callback_retention": {
+      "exit": 1,
+      "contains": [
+        "AssertionError:"
+      ]
+    },
+    "callback_error": {
+      "exit": 1,
+      "contains": [
+        "NoneValueException"
+      ]
+    },
+    "callback_wrong_return": {
+      "exit": 1,
+      "contains": [
+        "NoneValueException"
+      ]
+    },
+    "callback_noncallable": {
+      "exit": 1,
+      "contains": [
+        "NoneValueException"
+      ]
+    },
+    "wrong_string": {
+      "exit": 1,
+      "contains": [
+        "returned NULL without setting an exception"
+      ]
+    },
+    "missing_arg": {
+      "exit": 1,
+      "contains": [
+        "returned NULL without setting an exception"
+      ]
+    },
+    "extra_arg": {
+      "exit": 1,
+      "contains": [
+        "returned NULL without setting an exception"
+      ]
+    },
+    "wrong_record": {
+      "exit": 1,
+      "contains": [
+        "returned NULL without setting an exception"
+      ]
+    },
+    "wrong_array": {
+      "exit": 1,
+      "contains": [
+        "returned NULL without setting an exception"
+      ]
+    },
+    "default_explicit": {
+      "exit": 0,
+      "contains": [
+        "PASS"
+      ]
+    },
+    "default_omitted": {
+      "exit": 1,
+      "contains": [
+        "returned NULL without setting an exception"
+      ]
+    },
+    "cj_exception": {
+      "exit": 1,
+      "contains": [
+        "cj-boom"
+      ]
+    },
+    "python_exception": {
+      "exit": 0,
+      "contains": [
+        "PASS"
+      ]
+    },
+    "result_lifetime": {
+      "exit": 0,
+      "contains": [
+        "PASS"
+      ]
+    },
+    "fresh_scope": {
+      "exit": 0,
+      "contains": [
+        "PASS"
+      ]
+    },
+    "threads_gil": {
+      "exit": 0,
+      "contains": [
+        "PASS"
+      ]
+    },
+    "scope_function": {
+      "exit": 1,
+      "contains": [
+        "NameError: name 'owner' is not defined"
+      ]
+    },
+    "scope_function_adapter": {
+      "exit": 0,
+      "contains": [
+        "PASS"
+      ]
+    },
+    "without_outer_gil": {
+      "exit": 0,
+      "contains": [
+        "PASS"
+      ]
+    },
+    "registry_release": {
+      "exit": 0,
+      "contains": [
+        "PASS",
+        "REGISTRY_FREED false",
+        "AFTER_REGISTRY_DELETE true"
+      ]
+    },
+    "reference_gc": {
+      "exit": 0,
+      "contains": [
+        "PASS"
+      ]
+    },
+    "reference_native": {
+      "exit": 0,
+      "contains": [
+        "PASS"
+      ]
+    },
+    "result_after_request": {
+      "exit": 0,
+      "contains": [
+        "PASS"
+      ]
+    },
+    "reload": {
+      "exit": "failure"
+    },
+    "unload": {
+      "exit": 0,
+      "contains": [
+        "PASS"
+      ]
+    }
+  }
+}

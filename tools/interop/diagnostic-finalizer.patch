@@ -1,0 +1,13 @@
+diff --git a/src/pyobj.cj b/src/pyobj.cj
+index 33ebc62..964ccdb 100644
+--- a/src/pyobj.cj
++++ b/src/pyobj.cj
+@@ -149,3 +149,7 @@ public class Reference {
+         if (envInit && ptr.isNotNull()) {
+-            unsafe { Py_DecRef(ptr) }
++            unsafe {
++                let gil = PyGILState_Ensure()
++                Py_DecRef(ptr)
++                PyGILState_Release(gil)
++            }
+         }

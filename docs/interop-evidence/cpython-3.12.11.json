@@ -1,0 +1,872 @@
+{
+  "metadata": {
+    "recorded_at": "2026-10-28T14:49:59.163471+00:00",
+    "runtime_source_sha256": "5f3aa8c9eccf7054e9029166a2c6efa4d33b226129f369771e08231fc304e95a",
+    "generated_constants": "package py_interop\n\npublic const SIZE_OF_PYOBJECT = 0x10\npublic type PyObjectPaddingReplacement = VArray<Byte, $16>\n\npublic const SIZE_OF_PyMethodDef = 0x20\npublic const SIZE_OF_PyGetSetDef = 0x28\npublic const SIZE_OF_PyType_Spec = 0x20\npublic const SIZE_OF_PyType_Slot = 0x10\n\npublic const Py_tp_doc:Int32 = 0x38\npublic const Py_tp_getset:Int32 = 0x49\npublic const Py_tp_methods:Int32 = 0x40\npublic const Py_tp_init:Int32 = 0x3c\npublic const Py_tp_bases:Int32 = 0x31\npublic const Py_tp_repr:Int32 = 0x42\npublic const Py_tp_str:Int32 = 0x46\npublic const Py_tp_hash:Int32 = 0x3b\npublic const Py_tp_call:Int32 = 0x32\npublic const Py_tp_richcompare:Int32 = 0x43\npublic const Py_mp_subscript:Int32 = 0x5\npublic const Py_mp_ass_subscript:Int32 = 0x3\npublic const Py_TPFLAGS_DEFAULT: UInt32 = 0x0\npublic const Py_TPFLAGS_BASETYPE: UInt32 = 0x400\n// Expects positional arguments packed into a Python tuple.\npublic const METH_VARARGS: UInt32 = 0x1\n// Expects a third parameter containing a dictionary of keyword arguments.\npublic const METH_KEYWORDS: UInt32 = 0x2\n// Takes no arguments except self.\npublic const METH_NOARGS: UInt32 = 0x4\n// Takes exactly one single object argument.\npublic const METH_O: UInt32 = 0x8\n// Uses CPython's internal fast calling convention (passing a raw C array of arguments).\npublic const METH_FASTCALL: UInt32 = 0x80\n// Passes the type object as the first parameter (behaves like a standard @classmethod).\npublic const METH_CLASS: UInt32 = 0x10\n// Binds the function like a @staticmethod (omits passing the instance context).\npublic const METH_STATIC: UInt32 = 0x20\n// Permits the method to co-exist with existing definitions (e.g., overriding a built-in slot wrapper like __getitem__).\npublic const METH_COEXIST: UInt32 = 0x40\npublic const Py_EQ: UInt32 = 0x2\npublic const Py_NE: UInt32 = 0x3\npublic const Py_LT: UInt32 = 0x0\npublic const Py_GT: UInt32 = 0x4\npublic const Py_LE: UInt32 = 0x1\npublic const Py_GE: UInt32 = 0x5\n",
+    "interop_build": "python build/build.py build (release, -O2; constants generated from matching Python.h)",
+    "probe_build": "cjc default -O0",
+    "compiler": "Cangjie Compiler: 1.3.0-alpha.20261014001050 (cjnative)\nTarget: x86_64-unknown-linux-gnu",
+    "python_driver": "3.12.11 (main, Sep 18 2025, 19:47:19) [Clang 20.1.4 ]",
+    "platform": "Linux-7.2.9-arch1-1-x86_64-with-glibc2.44",
+    "libpython": "/tmp/cjmcp-issue6-python/cpython-3.12.11-linux-x86_64-gnu/lib/libpython3.12.so.1.0",
+    "sdk": "/home/filaco/.cjpm/toolchains/nightly-2026-10-14",
+    "interop_revision": "ded6e681bea82f85d0b8ceb2025d0b38e52ad14d",
+    "interop_diff": "diff --git a/src/py_macro_constants.cj b/src/py_macro_constants.cj\nindex eb74e17..2af3d59 100644\n--- a/src/py_macro_constants.cj\n+++ b/src/py_macro_constants.cj\n@@ -20,7 +20,7 @@ public const Py_tp_call:Int32 = 0x32\n public const Py_tp_richcompare:Int32 = 0x43\n public const Py_mp_subscript:Int32 = 0x5\n public const Py_mp_ass_subscript:Int32 = 0x3\n-public const Py_TPFLAGS_DEFAULT: UInt32 = 0x40000\n+public const Py_TPFLAGS_DEFAULT: UInt32 = 0x0\n public const Py_TPFLAGS_BASETYPE: UInt32 = 0x400\n // Expects positional arguments packed into a Python tuple.\n public const METH_VARARGS: UInt32 = 0x1\n",
+    "libpython_sha256": "d0a0a37f72089f5ff8933e5e45fe0fcf11416fcbc5e28108bbc3f618c6a43bd8",
+    "python_home": "/tmp/cjmcp-issue6-python/cpython-3.12.11-linux-x86_64-gnu",
+    "python_config": {
+      "VERSION": "3.12",
+      "Py_DEBUG": 0,
+      "Py_GIL_DISABLED": null,
+      "SOABI": "cpython-312-x86_64-linux-gnu"
+    }
+  },
+  "compile": {
+    "control": {
+      "command": [
+        "cjc",
+        "/tmp/cjmcp-issue6-verified-312/control/probe.cj",
+        "--import-path",
+        "/tmp/cjmcp-issue6-interop312/target/release/py_interop",
+        "--output-type=staticlib",
+        "--debug-macro",
+        "-Woff",
+        "all",
+        "-o",
+        "/tmp/cjmcp-issue6-verified-312/control/libprobe.a"
+      ],
+      "exit": 0,
+      "stdout": "",
+      "stderr": ""
+    },
+    "generic": {
+      "command": [
+        "cjc",
+        "/tmp/cjmcp-issue6-verified-312/generic/probe.cj",
+        "--import-path",
+        "/tmp/cjmcp-issue6-interop312/target/release/py_interop",
+        "--output-type=staticlib",
+        "--debug-macro",
+        "-Woff",
+        "all",
+        "-o",
+        "/tmp/cjmcp-issue6-verified-312/generic/libprobe.a"
+      ],
+      "exit": 1,
+      "stdout": "",
+      "stderr": "error: undeclared type name 'T'\n  ==> /tmp/cjmcp-issue6-verified-312/generic/probe.cj.macrocall:64:47:\n   | \n64 |                 let value = fromNativePyObj < T >(PyTuple_GetItem(vargs, 0))??break\n   |                                               ^ \n   | \n\nerror: generic type should be used with type argument\n  ==> /tmp/cjmcp-issue6-verified-312/generic/probe.cj.macrocall:30:48:\n   | \n30 |         let selfCJ = PyProxy.getFromRegistry < Box >(CPointer < CangjiePyObjStorage >(self))??return CPointer < Unit >()\n   |                                                ^ \n   | \n\nerror: generic type should be used with type argument\n  ==> /tmp/cjmcp-issue6-verified-312/generic/probe.cj.macrocall:93:8:\n   | \n93 | extend Box <: IntoPy < Box > & FromPy < Box > {\n   |        ^ \n   | \n\nerror: generic type should be used with type argument\n  ==> /tmp/cjmcp-issue6-verified-312/generic/probe.cj.macrocall:93:24:\n   | \n93 | extend Box <: IntoPy < Box > & FromPy < Box > {\n   |                        ^ \n   | \n\nerror: generic type should be used with type argument\n  ==> /tmp/cjmcp-issue6-verified-312/generic/probe.cj.macrocall:93:41:\n   | \n93 | extend Box <: IntoPy < Box > & FromPy < Box > {\n   |                                         ^ \n   | \n\nerror: generic type should be used with type argument\n  ==> /tmp/cjmcp-issue6-verified-312/generic/probe.cj.macrocall:94:66:\n   | \n94 |     private static func findBases(marker!: PyInteropTypeMarker < Box >= PyInteropTypeMarker()): CPointer < Unit > {\n   |                                                                  ^ \n   | \n\nerror: unable to infer generic argument of this function\n  ==> /tmp/cjmcp-issue6-verified-312/generic/probe.cj.macrocall:94:73:\n   | \n94 |     private static func findBases(marker!: PyInteropTypeMarker < Box >= PyInteropTypeMarker()): CPointer < Unit > {\n   |                                                                         ^^^^^^^^^^^^^^^^^^^ \n   | \n\nerror: generic type should be used with type argument\n  ==> /tmp/cjmcp-issue6-verified-312/generic/probe.cj.macrocall:99:72:\n   | \n99 |     private static func initializeClass(marker!: PyInteropTypeMarker < Box >= PyInteropTypeMarker()) {\n   |                                                                        ^ \n   | \n\n20 errors generated, 8 errors printed.\n"
+    },
+    "concrete_generic": {
+      "command": [
+        "cjc",
+        "/tmp/cjmcp-issue6-verified-312/concrete_generic/probe.cj",
+        "--import-path",
+        "/tmp/cjmcp-issue6-interop312/target/release/py_interop",
+        "--output-type=staticlib",
+        "--debug-macro",
+        "-Woff",
+        "all",
+        "-o",
+        "/tmp/cjmcp-issue6-verified-312/concrete_generic/libprobe.a"
+      ],
+      "exit": 0,
+      "stdout": "",
+      "stderr": ""
+    },
+    "unbound_extend": {
+      "command": [
+        "cjc",
+        "/tmp/cjmcp-issue6-verified-312/unbound_extend/probe.cj",
+        "--import-path",
+        "/tmp/cjmcp-issue6-interop312/target/release/py_interop",
+        "--output-type=staticlib",
+        "--debug-macro",
+        "-Woff",
+        "all",
+        "-o",
+        "/tmp/cjmcp-issue6-verified-312/unbound_extend/libprobe.a"
+      ],
+      "exit": 1,
+      "stdout": "",
+      "stderr": "error: undeclared identifier 'Existing__PyInteropNativeDescriptor'\n  ==> /tmp/cjmcp-issue6-verified-312/unbound_extend/probe.cj.macrocall:14:9:\n   | \n14 | let _ = Existing__PyInteropNativeDescriptor\n   |         ^ \n   | \n\n1 error generated, 1 error printed.\n"
+    },
+    "bound_extend": {
+      "command": [
+        "cjc",
+        "/tmp/cjmcp-issue6-verified-312/bound_extend/probe.cj",
+        "--import-path",
+        "/tmp/cjmcp-issue6-interop312/target/release/py_interop",
+        "--output-type=staticlib",
+        "--debug-macro",
+        "-Woff",
+        "all",
+        "-o",
+        "/tmp/cjmcp-issue6-verified-312/bound_extend/libprobe.a"
+      ],
+      "exit": 0,
+      "stdout": "",
+      "stderr": ""
+    },
+    "enum_result": {
+      "command": [
+        "cjc",
+        "/tmp/cjmcp-issue6-verified-312/enum_result/probe.cj",
+        "--import-path",
+        "/tmp/cjmcp-issue6-interop312/target/release/py_interop",
+        "--output-type=staticlib",
+        "--debug-macro",
+        "-Woff",
+        "all",
+        "-o",
+        "/tmp/cjmcp-issue6-verified-312/enum_result/libprobe.a"
+      ],
+      "exit": 1,
+      "stdout": "",
+      "stderr": "error: variable '__PyInterop__stringLiteral0' is used before being defined\n  ==> /tmp/cjmcp-issue6-verified-312/enum_result/probe.cj.macrocall:33:79:\n   | \n33 |                 let ii = PyDict_GetItemString(kwargs, CPointer < Byte >(inout __PyInterop__stringLiteral0))\n   |                                                                               ^^^^^^^^^^^^^^^^^^^^^^^^^^^ \n   | \n\nerror: variable '__PyInterop__stringLiteral0' is used before being defined\n  ==> /tmp/cjmcp-issue6-verified-312/enum_result/probe.cj.macrocall:98:79:\n   | \n98 |                 let ii = PyDict_GetItemString(kwargs, CPointer < Byte >(inout __PyInterop__stringLiteral0))\n   |                                                                               ^^^^^^^^^^^^^^^^^^^^^^^^^^^ \n   | \n\nerror: global/static variable '__PyInterop__stringLiteral0' is used before initialization during initializing '__PyInterop__stringLiteral0'\n  ==> /tmp/cjmcp-issue6-verified-312/enum_result/probe.cj.macrocall:33:79:\n   | \n33 |                 let ii = PyDict_GetItemString(kwargs, CPointer < Byte >(inout __PyInterop__stringLiteral0))\n   |                                                                               ^ \n   | \n\nerror: global/static variable '__PyInterop__stringLiteral0' is used before initialization during initializing '__PyInterop__stringLiteral0'\n  ==> /tmp/cjmcp-issue6-verified-312/enum_result/probe.cj.macrocall:98:79:\n   | \n98 |                 let ii = PyDict_GetItemString(kwargs, CPointer < Byte >(inout __PyInterop__stringLiteral0))\n   |                                                                               ^ \n   | \n\n4 errors generated, 4 errors printed.\n"
+    },
+    "enum_payload": {
+      "command": [
+        "cjc",
+        "/tmp/cjmcp-issue6-verified-312/enum_payload/probe.cj",
+        "--import-path",
+        "/tmp/cjmcp-issue6-interop312/target/release/py_interop",
+        "--output-type=staticlib",
+        "--debug-macro",
+        "-Woff",
+        "all",
+        "-o",
+        "/tmp/cjmcp-issue6-verified-312/enum_payload/libprobe.a"
+      ],
+      "exit": 1,
+      "stdout": "",
+      "stderr": "An exception has occurred:\nASTException: Cannot construct the 'ClassDecl' node.\n\t at std.ast::ClassDecl::init(std.ast::Tokens)(std/ast/decls.cj:249)\n\t at py_interop.internal_macros::EnumConstrGenerator::makeFakeClass(std.ast::Constructor)(/tmp/cjmcp-issue6-interop312/src/internal_macros/c_enable.cj:1065)\n\t at py_interop.internal_macros::EnumGenerator::init(std.ast::EnumDecl)(/tmp/cjmcp-issue6-interop312/src/internal_macros/c_enable.cj:1141)\n\t at py_interop.internal_macros::DerivePython(std.ast::Tokens)(/tmp/cjmcp-issue6-interop312/src/internal_macros/c_enable.cj:1256)\n\t at macroCall_c_DerivePython_py_interop_internal_macros(/tmp/cjmcp-issue6-interop312/src/internal_macros/c_enable.cj:1281)\nerror: macro evaluation has failed for macro call 'DerivePython'\n ==> /tmp/cjmcp-issue6-verified-312/enum_payload/probe.cj:4:1:\n  | \n4 | @DerivePython public enum Kind { Item(Int64, String) }\n  | ^ \n  | \n\n1 error generated, 1 error printed.\n"
+    },
+    "private_ctor": {
+      "command": [
+        "cjc",
+        "/tmp/cjmcp-issue6-verified-312/private_ctor/probe.cj",
+        "--import-path",
+        "/tmp/cjmcp-issue6-interop312/target/release/py_interop",
+        "--output-type=staticlib",
+        "--debug-macro",
+        "-Woff",
+        "all",
+        "-o",
+        "/tmp/cjmcp-issue6-verified-312/private_ctor/libprobe.a"
+      ],
+      "exit": 1,
+      "stdout": "",
+      "stderr": "error: no matching constructor for call 'Hidden'\n  ==> /tmp/cjmcp-issue6-verified-312/private_ctor/probe.cj.macrocall:46:27:\n   | \n46 |                 let obj = Hidden()\n   |                           ^ \n   | \n\n1 error generated, 1 error printed.\n"
+    },
+    "mutable_struct": {
+      "command": [
+        "cjc",
+        "/tmp/cjmcp-issue6-verified-312/mutable_struct/probe.cj",
+        "--import-path",
+        "/tmp/cjmcp-issue6-interop312/target/release/py_interop",
+        "--output-type=staticlib",
+        "--debug-macro",
+        "-Woff",
+        "all",
+        "-o",
+        "/tmp/cjmcp-issue6-verified-312/mutable_struct/libprobe.a"
+      ],
+      "exit": 1,
+      "stdout": "",
+      "stderr": "error: cannot assign to immutable value\n  ==> /tmp/cjmcp-issue6-verified-312/mutable_struct/probe.cj.macrocall:38:9:\n   | \n38 |         selfCJ.n = fromNativePyObj(newValue, selfCJ.n)\n   |         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ \n   | \nnote: variable 'selfCJ' is immutable\n  ==> /tmp/cjmcp-issue6-verified-312/mutable_struct/probe.cj.macrocall:37:13:\n   | \n37 |         let selfCJ = PyProxy.getFromRegistry < Mutable >(CPointer < CangjiePyObjStorage >(self))??return - 1\n   |             ^^^^^^ \n   | \n\n1 error generated, 1 error printed.\n"
+    },
+    "array_pair_out": {
+      "command": [
+        "cjc",
+        "/tmp/cjmcp-issue6-verified-312/array_pair_out/probe.cj",
+        "--import-path",
+        "/tmp/cjmcp-issue6-interop312/target/release/py_interop",
+        "--output-type=staticlib",
+        "--debug-macro",
+        "-Woff",
+        "all",
+        "-o",
+        "/tmp/cjmcp-issue6-verified-312/array_pair_out/libprobe.a"
+      ],
+      "exit": 1,
+      "stdout": "",
+      "stderr": "error: unable to infer generic argument of this function\n  ==> /tmp/cjmcp-issue6-verified-312/array_pair_out/probe.cj.macrocall:24:24:\n   | \n24 |                 return toNativePyObj(pairs())\n   |                        ^^^^^^^^^^^^^ \n   | \nnote: following constraints for type variable 'Generics-T' cannot be solved:\n      'Struct-Array<Tuple<Int64, Struct-String>> <: Generics-T'\n      'Generics-T <: Interface-IntoPy<Generics-T>'\n  ==> (package py_interop)cjobj.cj:29:34:\nnote: constraint 'Struct-Array<Tuple<Int64, Struct-String>> <: Generics-T' may come from:\n  ==> /tmp/cjmcp-issue6-verified-312/array_pair_out/probe.cj.macrocall:24:38:\n   | \n24 |                 return toNativePyObj(pairs())\n   |                                      ^^^^^^^ of type 'Struct-Array<Tuple<Int64, Struct-String>>', should match parameter type 'Generics-T'\n   | \n\nerror: no matching function declaration for function call 'toNativePyObj'\n  ==> /tmp/cjmcp-issue6-verified-312/array_pair_out/probe.cj.macrocall:24:24:\n   | \n24 |                 return toNativePyObj(pairs())\n   |                        ^ \n   | \nnote: found imported candidate\n ==> /tmp/cjmcp-issue6-verified-312/array_pair_out/probe.cj.macrocall:2:1:\n  | \n2 | import py_interop.*\n  | ^^^^^^^^^^^^^^^^^^^ \n  | \n\n2 errors generated, 2 errors printed.\n"
+    },
+    "ignored_field": {
+      "command": [
+        "cjc",
+        "/tmp/cjmcp-issue6-verified-312/ignored_field/probe.cj",
+        "--import-path",
+        "/tmp/cjmcp-issue6-interop312/target/release/py_interop",
+        "--output-type=staticlib",
+        "--debug-macro",
+        "-Woff",
+        "all",
+        "-o",
+        "/tmp/cjmcp-issue6-verified-312/ignored_field/libprobe.a"
+      ],
+      "exit": 0,
+      "stdout": "",
+      "stderr": ""
+    },
+    "inheritance_implicit": {
+      "command": [
+        "cjc",
+        "/tmp/cjmcp-issue6-verified-312/inheritance_implicit/probe.cj",
+        "--import-path",
+        "/tmp/cjmcp-issue6-interop312/target/release/py_interop",
+        "--output-type=staticlib",
+        "--debug-macro",
+        "-Woff",
+        "all",
+        "-o",
+        "/tmp/cjmcp-issue6-verified-312/inheritance_implicit/libprobe.a"
+      ],
+      "exit": 1,
+      "stdout": "",
+      "stderr": "error: ambiguous match for function call 'pyClass'\n   ==> /tmp/cjmcp-issue6-verified-312/inheritance_implicit/probe.cj.macrocall:231:36:\n    | \n231 | public func cls(): PyObj { Derived.pyClass() }\n    |                                    ^ \n    | \nnote: found candidate\n  ==> /tmp/cjmcp-issue6-verified-312/inheritance_implicit/probe.cj.macrocall:89:24:\n   | \n89 |     public static func pyClass(marker!: PyInteropTypeMarker < Base >= PyInteropTypeMarker()): PyObj {\n   |                        ^ \n   | \nnote: found candidate\n   ==> /tmp/cjmcp-issue6-verified-312/inheritance_implicit/probe.cj.macrocall:205:24:\n    | \n205 |     public static func pyClass(marker!: PyInteropTypeMarker < Derived >= PyInteropTypeMarker()): PyObj {\n    |                        ^ \n    | \n\n1 error generated, 1 error printed.\n"
+    },
+    "callback_out": {
+      "command": [
+        "cjc",
+        "/tmp/cjmcp-issue6-verified-312/callback_out/probe.cj",
+        "--import-path",
+        "/tmp/cjmcp-issue6-interop312/target/release/py_interop",
+        "--output-type=staticlib",
+        "--debug-macro",
+        "-Woff",
+        "all",
+        "-o",
+        "/tmp/cjmcp-issue6-verified-312/callback_out/libprobe.a"
+      ],
+      "exit": 1,
+      "stdout": "",
+      "stderr": "error: unable to infer generic argument of this function\n  ==> /tmp/cjmcp-issue6-verified-312/callback_out/probe.cj.macrocall:24:24:\n   | \n24 |                 return toNativePyObj(callback())\n   |                        ^^^^^^^^^^^^^ \n   | \nnote: following constraints for type variable 'Generics-T' cannot be solved:\n      '(Int64) -> Int64 <: Generics-T'\n      'Generics-T <: Interface-IntoPy<Generics-T>'\n  ==> (package py_interop)cjobj.cj:29:34:\nnote: constraint '(Int64) -> Int64 <: Generics-T' may come from:\n  ==> /tmp/cjmcp-issue6-verified-312/callback_out/probe.cj.macrocall:24:38:\n   | \n24 |                 return toNativePyObj(callback())\n   |                                      ^^^^^^^^^^ of type '(Int64) -> Int64', should match parameter type 'Generics-T'\n   | \n\nerror: no matching function declaration for function call 'toNativePyObj'\n  ==> /tmp/cjmcp-issue6-verified-312/callback_out/probe.cj.macrocall:24:24:\n   | \n24 |                 return toNativePyObj(callback())\n   |                        ^ \n   | \nnote: found imported candidate\n ==> /tmp/cjmcp-issue6-verified-312/callback_out/probe.cj.macrocall:2:1:\n  | \n2 | import py_interop.*\n  | ^^^^^^^^^^^^^^^^^^^ \n  | \n\n2 errors generated, 2 errors printed.\n"
+    },
+    "domain": {
+      "command": [
+        "cjc",
+        "/tmp/cjmcp-issue6-verified-312/cross_package/domain.cj",
+        "--output-type=staticlib",
+        "-o",
+        "/tmp/cjmcp-issue6-verified-312/cross_package/libdomain.a"
+      ],
+      "exit": 0,
+      "stdout": "",
+      "stderr": ""
+    },
+    "external_interface": {
+      "command": [
+        "cjc",
+        "/tmp/cjmcp-issue6-verified-312/cross_package/external_interface.cj",
+        "--import-path",
+        "/tmp/cjmcp-issue6-interop312/target/release/py_interop",
+        "--import-path",
+        "/tmp/cjmcp-issue6-verified-312/cross_package",
+        "--output-type=staticlib",
+        "--debug-macro",
+        "-Woff",
+        "all",
+        "-o",
+        "/tmp/cjmcp-issue6-verified-312/cross_package/external_interface.a"
+      ],
+      "exit": 1,
+      "stdout": "",
+      "stderr": "error: imported type 'Value' cannot extend imported interface\n ==> /tmp/cjmcp-issue6-verified-312/cross_package/external_interface.cj:5:8:\n  | \n5 | extend Value <: IntoPy<Value> { public func toPyObj(marker!: PyInteropTypeMarker<Value>): PyObj { toPyObj(n) } }\n  |        ^^^^^ \n  | \n  # note: used external interface: Interface-IntoPy<Struct-Value> Interface-PyFFIType\n\n1 error generated, 1 error printed.\n"
+    },
+    "external_converter": {
+      "command": [
+        "cjc",
+        "/tmp/cjmcp-issue6-verified-312/cross_package/external_converter.cj",
+        "--import-path",
+        "/tmp/cjmcp-issue6-interop312/target/release/py_interop",
+        "--import-path",
+        "/tmp/cjmcp-issue6-verified-312/cross_package",
+        "--output-type=staticlib",
+        "--debug-macro",
+        "-Woff",
+        "all",
+        "-o",
+        "/tmp/cjmcp-issue6-verified-312/cross_package/external_converter.a"
+      ],
+      "exit": 0,
+      "stdout": "",
+      "stderr": ""
+    },
+    "bound_domain": {
+      "command": [
+        "cjc",
+        "/tmp/cjmcp-issue6-verified-312/cross_package/bound.cj",
+        "--import-path",
+        "/tmp/cjmcp-issue6-interop312/target/release/py_interop",
+        "--output-type=staticlib",
+        "--debug-macro",
+        "-Woff",
+        "all",
+        "-o",
+        "/tmp/cjmcp-issue6-verified-312/cross_package/libbound.a"
+      ],
+      "exit": 0,
+      "stdout": "",
+      "stderr": ""
+    },
+    "bound_cross_extend": {
+      "command": [
+        "cjc",
+        "/tmp/cjmcp-issue6-verified-312/cross_package/extension.cj",
+        "--import-path",
+        "/tmp/cjmcp-issue6-interop312/target/release/py_interop",
+        "--import-path",
+        "/tmp/cjmcp-issue6-verified-312/cross_package",
+        "--output-type=staticlib",
+        "--debug-macro",
+        "-Woff",
+        "all",
+        "-o",
+        "/tmp/cjmcp-issue6-verified-312/cross_package/libextension.a"
+      ],
+      "exit": 1,
+      "stdout": "",
+      "stderr": "error: undeclared identifier 'Bound__PyInteropNativeDescriptor'\n  ==> /tmp/cjmcp-issue6-verified-312/cross_package/extension.cj.macrocall:14:9:\n   | \n14 | let _ = Bound__PyInteropNativeDescriptor\n   |         ^ \n   | \n\n1 error generated, 1 error printed.\n"
+    }
+  },
+  "runtime": {
+    "inheritance": {
+      "command": [
+        "/tmp/cjmcp-issue6-verified-312/runtime",
+        "/tmp/cjmcp-issue6-python/cpython-3.12.11-linux-x86_64-gnu/lib/libpython3.12.so.1.0",
+        "run",
+        "assert Derived().baseValue() == 11"
+      ],
+      "exit": 0,
+      "stdout": "LOADED 3.12.11\nPASS\n",
+      "stderr": ""
+    },
+    "selection": {
+      "command": [
+        "/tmp/cjmcp-issue6-verified-312/runtime",
+        "/tmp/cjmcp-issue6-python/cpython-3.12.11-linux-x86_64-gnu/lib/libpython3.12.so.1.0",
+        "run",
+        "assert not hasattr(owner, \"hidden\")"
+      ],
+      "exit": 0,
+      "stdout": "LOADED 3.12.11\nPASS\n",
+      "stderr": ""
+    },
+    "overloads": {
+      "command": [
+        "/tmp/cjmcp-issue6-verified-312/runtime",
+        "/tmp/cjmcp-issue6-python/cpython-3.12.11-linux-x86_64-gnu/lib/libpython3.12.so.1.0",
+        "run",
+        "assert owner.choose() == 1; assert owner.choose(4) == 4"
+      ],
+      "exit": 0,
+      "stdout": "LOADED 3.12.11\nPASS\n",
+      "stderr": ""
+    },
+    "extension": {
+      "command": [
+        "/tmp/cjmcp-issue6-verified-312/runtime",
+        "/tmp/cjmcp-issue6-python/cpython-3.12.11-linux-x86_64-gnu/lib/libpython3.12.so.1.0",
+        "run",
+        "assert Entry(3, \"three\").doubled() == 6"
+      ],
+      "exit": 0,
+      "stdout": "LOADED 3.12.11\nPASS\n",
+      "stderr": ""
+    },
+    "class_mutation": {
+      "command": [
+        "/tmp/cjmcp-issue6-verified-312/runtime",
+        "/tmp/cjmcp-issue6-python/cpython-3.12.11-linux-x86_64-gnu/lib/libpython3.12.so.1.0",
+        "run",
+        "owner.calls = 40; assert owner.next().n == 41"
+      ],
+      "exit": 0,
+      "stdout": "LOADED 3.12.11\nPASS\n",
+      "stderr": ""
+    },
+    "invalid_setter": {
+      "command": [
+        "/tmp/cjmcp-issue6-verified-312/runtime",
+        "/tmp/cjmcp-issue6-python/cpython-3.12.11-linux-x86_64-gnu/lib/libpython3.12.so.1.0",
+        "run",
+        "owner.calls = \"bad\"; assert owner.calls == 0"
+      ],
+      "exit": 0,
+      "stdout": "LOADED 3.12.11\nPASS\n",
+      "stderr": ""
+    },
+    "invalid_ctor": {
+      "command": [
+        "/tmp/cjmcp-issue6-verified-312/runtime",
+        "/tmp/cjmcp-issue6-python/cpython-3.12.11-linux-x86_64-gnu/lib/libpython3.12.so.1.0",
+        "run",
+        "Entry(\"bad\", \"value\")"
+      ],
+      "exit": 1,
+      "stdout": "LOADED 3.12.11\n",
+      "stderr": "ExclusiveScopeException: PythonException: PyRunString failed, mode: 257.\nTypeError: Illegal arguments to cangjie initializer 'Entry': (bad, value)\n  File \"<string>\", line 1, in <module>\n\n"
+    },
+    "forged_identity": {
+      "command": [
+        "/tmp/cjmcp-issue6-verified-312/runtime",
+        "/tmp/cjmcp-issue6-python/cpython-3.12.11-linux-x86_64-gnu/lib/libpython3.12.so.1.0",
+        "run",
+        "class Fake: __cangjie_identity__ = True\nrecord(Fake())"
+      ],
+      "exit": 1,
+      "stdout": "LOADED 3.12.11\n",
+      "stderr": "ExclusiveScopeException: ExclusiveScopeException: NoneValueException\n"
+    },
+    "registration": {
+      "command": [
+        "/tmp/cjmcp-issue6-verified-312/runtime",
+        "/tmp/cjmcp-issue6-python/cpython-3.12.11-linux-x86_64-gnu/lib/libpython3.12.so.1.0",
+        "run",
+        "assert callable(echo) and isinstance(Entry, type)"
+      ],
+      "exit": 0,
+      "stdout": "LOADED 3.12.11\nPASS\n",
+      "stderr": ""
+    },
+    "unicode": {
+      "command": [
+        "/tmp/cjmcp-issue6-verified-312/runtime",
+        "/tmp/cjmcp-issue6-python/cpython-3.12.11-linux-x86_64-gnu/lib/libpython3.12.so.1.0",
+        "run",
+        "assert echo(\"Привет 🐍\") == \"Привет 🐍\""
+      ],
+      "exit": 0,
+      "stdout": "LOADED 3.12.11\nPASS\n",
+      "stderr": ""
+    },
+    "nul_string": {
+      "command": [
+        "/tmp/cjmcp-issue6-verified-312/runtime",
+        "/tmp/cjmcp-issue6-python/cpython-3.12.11-linux-x86_64-gnu/lib/libpython3.12.so.1.0",
+        "run",
+        "assert echo(\"a\\0b\") == \"a\\0b\""
+      ],
+      "exit": 1,
+      "stdout": "LOADED 3.12.11\n",
+      "stderr": "ExclusiveScopeException: PythonException: PyRunString failed, mode: 257.\nAssertionError: \n  File \"<string>\", line 1, in <module>\n\n"
+    },
+    "record": {
+      "command": [
+        "/tmp/cjmcp-issue6-verified-312/runtime",
+        "/tmp/cjmcp-issue6-python/cpython-3.12.11-linux-x86_64-gnu/lib/libpython3.12.so.1.0",
+        "run",
+        "e = record(Entry(9, \"девять\")); assert (e.n, e.text) == (9, \"девять\")"
+      ],
+      "exit": 0,
+      "stdout": "LOADED 3.12.11\nPASS\n",
+      "stderr": ""
+    },
+    "array_string": {
+      "command": [
+        "/tmp/cjmcp-issue6-verified-312/runtime",
+        "/tmp/cjmcp-issue6-python/cpython-3.12.11-linux-x86_64-gnu/lib/libpython3.12.so.1.0",
+        "run",
+        "assert strings([\"a\", \"б\"]) == [\"a\", \"б\"]"
+      ],
+      "exit": 0,
+      "stdout": "LOADED 3.12.11\nPASS\n",
+      "stderr": ""
+    },
+    "array_record": {
+      "command": [
+        "/tmp/cjmcp-issue6-verified-312/runtime",
+        "/tmp/cjmcp-issue6-python/cpython-3.12.11-linux-x86_64-gnu/lib/libpython3.12.so.1.0",
+        "run",
+        "es = entries([Entry(2, \"two\")]); assert es[0].n == 2"
+      ],
+      "exit": 0,
+      "stdout": "LOADED 3.12.11\nPASS\n",
+      "stderr": ""
+    },
+    "option": {
+      "command": [
+        "/tmp/cjmcp-issue6-verified-312/runtime",
+        "/tmp/cjmcp-issue6-python/cpython-3.12.11-linux-x86_64-gnu/lib/libpython3.12.so.1.0",
+        "run",
+        "assert optional(None) is None; assert optional(\"yes\") == \"yes\""
+      ],
+      "exit": 0,
+      "stdout": "LOADED 3.12.11\nPASS\n",
+      "stderr": ""
+    },
+    "nested": {
+      "command": [
+        "/tmp/cjmcp-issue6-verified-312/runtime",
+        "/tmp/cjmcp-issue6-python/cpython-3.12.11-linux-x86_64-gnu/lib/libpython3.12.so.1.0",
+        "run",
+        "assert nested(None) is None; assert nested([Entry(4, \"four\")])[0].text == \"four\""
+      ],
+      "exit": 0,
+      "stdout": "LOADED 3.12.11\nPASS\n",
+      "stderr": ""
+    },
+    "pair": {
+      "command": [
+        "/tmp/cjmcp-issue6-verified-312/runtime",
+        "/tmp/cjmcp-issue6-python/cpython-3.12.11-linux-x86_64-gnu/lib/libpython3.12.so.1.0",
+        "run",
+        "assert pair((2, \"два\")) == (2, \"два\")"
+      ],
+      "exit": 0,
+      "stdout": "LOADED 3.12.11\nPASS\n",
+      "stderr": ""
+    },
+    "array_pair_in": {
+      "command": [
+        "/tmp/cjmcp-issue6-verified-312/runtime",
+        "/tmp/cjmcp-issue6-python/cpython-3.12.11-linux-x86_64-gnu/lib/libpython3.12.so.1.0",
+        "run",
+        "assert pairs([(1, \"one\"), (2, \"two\")]) == 2"
+      ],
+      "exit": 0,
+      "stdout": "LOADED 3.12.11\nPASS\n",
+      "stderr": ""
+    },
+    "triple_out": {
+      "command": [
+        "/tmp/cjmcp-issue6-verified-312/runtime",
+        "/tmp/cjmcp-issue6-python/cpython-3.12.11-linux-x86_64-gnu/lib/libpython3.12.so.1.0",
+        "run",
+        "assert tripleOut() == (3, \"три\", True)"
+      ],
+      "exit": 0,
+      "stdout": "LOADED 3.12.11\nPASS\n",
+      "stderr": ""
+    },
+    "triple_in": {
+      "command": [
+        "/tmp/cjmcp-issue6-verified-312/runtime",
+        "/tmp/cjmcp-issue6-python/cpython-3.12.11-linux-x86_64-gnu/lib/libpython3.12.so.1.0",
+        "run",
+        "assert triple((3, \"three\", True)) == 3"
+      ],
+      "exit": 1,
+      "stdout": "LOADED 3.12.11\n",
+      "stderr": "ExclusiveScopeException: PythonException: PyRunString failed, mode: 257.\nSystemError: <built-in function triple> returned NULL without setting an exception\n  File \"<string>\", line 1, in <module>\n\n"
+    },
+    "triple_short": {
+      "command": [
+        "/tmp/cjmcp-issue6-verified-312/runtime",
+        "/tmp/cjmcp-issue6-python/cpython-3.12.11-linux-x86_64-gnu/lib/libpython3.12.so.1.0",
+        "run",
+        "triple((3, \"three\"))"
+      ],
+      "exit": 1,
+      "stdout": "LOADED 3.12.11\n",
+      "stderr": "ExclusiveScopeException: PythonException: PyRunString failed, mode: 257.\nSystemError: <built-in function triple> returned a result with an exception set\n  File \"<string>\", line 1, in <module>\n\n"
+    },
+    "callback": {
+      "command": [
+        "/tmp/cjmcp-issue6-verified-312/runtime",
+        "/tmp/cjmcp-issue6-python/cpython-3.12.11-linux-x86_64-gnu/lib/libpython3.12.so.1.0",
+        "run",
+        "assert invoke(lambda n: str(n)) == \"7\""
+      ],
+      "exit": 0,
+      "stdout": "LOADED 3.12.11\nPASS\n",
+      "stderr": ""
+    },
+    "callback_retention": {
+      "command": [
+        "/tmp/cjmcp-issue6-verified-312/runtime",
+        "/tmp/cjmcp-issue6-python/cpython-3.12.11-linux-x86_64-gnu/lib/libpython3.12.so.1.0",
+        "run",
+        "import weakref, gc\nclass F:\n def __call__(self, n): return str(n)\nf = F(); weak = weakref.ref(f); owner.save(f); assert owner.callSaved() == \"8\"; del f; gc.collect(); assert weak() is not None"
+      ],
+      "exit": 1,
+      "stdout": "LOADED 3.12.11\n",
+      "stderr": "ExclusiveScopeException: PythonException: PyRunString failed, mode: 257.\nAssertionError: \n  File \"<string>\", line 4, in <module>\n\n"
+    },
+    "callback_error": {
+      "command": [
+        "/tmp/cjmcp-issue6-verified-312/runtime",
+        "/tmp/cjmcp-issue6-python/cpython-3.12.11-linux-x86_64-gnu/lib/libpython3.12.so.1.0",
+        "run",
+        "invoke(lambda n: 1 / 0)"
+      ],
+      "exit": 1,
+      "stdout": "LOADED 3.12.11\n",
+      "stderr": "ExclusiveScopeException: ExclusiveScopeException: ExclusiveScopeException: NoneValueException\n"
+    },
+    "callback_wrong_return": {
+      "command": [
+        "/tmp/cjmcp-issue6-verified-312/runtime",
+        "/tmp/cjmcp-issue6-python/cpython-3.12.11-linux-x86_64-gnu/lib/libpython3.12.so.1.0",
+        "run",
+        "invoke(lambda n: 123)"
+      ],
+      "exit": 1,
+      "stdout": "LOADED 3.12.11\n",
+      "stderr": "ExclusiveScopeException: ExclusiveScopeException: ExclusiveScopeException: NoneValueException\n"
+    },
+    "callback_noncallable": {
+      "command": [
+        "/tmp/cjmcp-issue6-verified-312/runtime",
+        "/tmp/cjmcp-issue6-python/cpython-3.12.11-linux-x86_64-gnu/lib/libpython3.12.so.1.0",
+        "run",
+        "invoke(123)"
+      ],
+      "exit": 1,
+      "stdout": "LOADED 3.12.11\n",
+      "stderr": "ExclusiveScopeException: ExclusiveScopeException: ExclusiveScopeException: NoneValueException\n"
+    },
+    "wrong_string": {
+      "command": [
+        "/tmp/cjmcp-issue6-verified-312/runtime",
+        "/tmp/cjmcp-issue6-python/cpython-3.12.11-linux-x86_64-gnu/lib/libpython3.12.so.1.0",
+        "run",
+        "echo(123)"
+      ],
+      "exit": 1,
+      "stdout": "LOADED 3.12.11\n",
+      "stderr": "ExclusiveScopeException: PythonException: PyRunString failed, mode: 257.\nSystemError: <built-in function echo> returned NULL without setting an exception\n  File \"<string>\", line 1, in <module>\n\n"
+    },
+    "missing_arg": {
+      "command": [
+        "/tmp/cjmcp-issue6-verified-312/runtime",
+        "/tmp/cjmcp-issue6-python/cpython-3.12.11-linux-x86_64-gnu/lib/libpython3.12.so.1.0",
+        "run",
+        "echo()"
+      ],
+      "exit": 1,
+      "stdout": "LOADED 3.12.11\n",
+      "stderr": "ExclusiveScopeException: PythonException: PyRunString failed, mode: 257.\nSystemError: <built-in function echo> returned NULL without setting an exception\n  File \"<string>\", line 1, in <module>\n\n"
+    },
+    "extra_arg": {
+      "command": [
+        "/tmp/cjmcp-issue6-verified-312/runtime",
+        "/tmp/cjmcp-issue6-python/cpython-3.12.11-linux-x86_64-gnu/lib/libpython3.12.so.1.0",
+        "run",
+        "echo(\"a\", \"b\")"
+      ],
+      "exit": 1,
+      "stdout": "LOADED 3.12.11\n",
+      "stderr": "ExclusiveScopeException: PythonException: PyRunString failed, mode: 257.\nSystemError: <built-in function echo> returned NULL without setting an exception\n  File \"<string>\", line 1, in <module>\n\n"
+    },
+    "wrong_record": {
+      "command": [
+        "/tmp/cjmcp-issue6-verified-312/runtime",
+        "/tmp/cjmcp-issue6-python/cpython-3.12.11-linux-x86_64-gnu/lib/libpython3.12.so.1.0",
+        "run",
+        "record(\"bad\")"
+      ],
+      "exit": 1,
+      "stdout": "LOADED 3.12.11\n",
+      "stderr": "ExclusiveScopeException: PythonException: PyRunString failed, mode: 257.\nSystemError: <built-in function record> returned NULL without setting an exception\n  File \"<string>\", line 1, in <module>\n\n"
+    },
+    "wrong_array": {
+      "command": [
+        "/tmp/cjmcp-issue6-verified-312/runtime",
+        "/tmp/cjmcp-issue6-python/cpython-3.12.11-linux-x86_64-gnu/lib/libpython3.12.so.1.0",
+        "run",
+        "strings([1])"
+      ],
+      "exit": 1,
+      "stdout": "LOADED 3.12.11\n",
+      "stderr": "ExclusiveScopeException: PythonException: PyRunString failed, mode: 257.\nSystemError: <built-in function strings> returned NULL without setting an exception\n  File \"<string>\", line 1, in <module>\n\n"
+    },
+    "default_explicit": {
+      "command": [
+        "/tmp/cjmcp-issue6-verified-312/runtime",
+        "/tmp/cjmcp-issue6-python/cpython-3.12.11-linux-x86_64-gnu/lib/libpython3.12.so.1.0",
+        "run",
+        "assert defaulted(limit=8) == 8"
+      ],
+      "exit": 0,
+      "stdout": "LOADED 3.12.11\nPASS\n",
+      "stderr": ""
+    },
+    "default_omitted": {
+      "command": [
+        "/tmp/cjmcp-issue6-verified-312/runtime",
+        "/tmp/cjmcp-issue6-python/cpython-3.12.11-linux-x86_64-gnu/lib/libpython3.12.so.1.0",
+        "run",
+        "assert defaulted() == 5"
+      ],
+      "exit": 1,
+      "stdout": "LOADED 3.12.11\n",
+      "stderr": "ExclusiveScopeException: PythonException: PyRunString failed, mode: 257.\nSystemError: <built-in function defaulted> returned NULL without setting an exception\n  File \"<string>\", line 1, in <module>\n\n"
+    },
+    "cj_exception": {
+      "command": [
+        "/tmp/cjmcp-issue6-verified-312/runtime",
+        "/tmp/cjmcp-issue6-python/cpython-3.12.11-linux-x86_64-gnu/lib/libpython3.12.so.1.0",
+        "run",
+        "explode()"
+      ],
+      "exit": 1,
+      "stdout": "LOADED 3.12.11\n",
+      "stderr": "ExclusiveScopeException: ExclusiveScopeException: Exception: cj-boom\n"
+    },
+    "python_exception": {
+      "command": [
+        "/tmp/cjmcp-issue6-verified-312/runtime",
+        "/tmp/cjmcp-issue6-python/cpython-3.12.11-linux-x86_64-gnu/lib/libpython3.12.so.1.0",
+        "python_error",
+        "raise ValueError(\"py-boom\")"
+      ],
+      "exit": 0,
+      "stdout": "LOADED 3.12.11\nPYTHON_EXCEPTION ExclusiveScopeException: PythonException: PyRunString failed, mode: 257.\nValueError: py-boom\n  File \"<string>\", line 1, in <module>\n\nPASS\n",
+      "stderr": ""
+    },
+    "result_lifetime": {
+      "command": [
+        "/tmp/cjmcp-issue6-verified-312/runtime",
+        "/tmp/cjmcp-issue6-python/cpython-3.12.11-linux-x86_64-gnu/lib/libpython3.12.so.1.0",
+        "run",
+        "import gc; result = owner.next(); gc.collect(); assert result.text == \"owned\""
+      ],
+      "exit": 0,
+      "stdout": "LOADED 3.12.11\nPASS\n",
+      "stderr": ""
+    },
+    "fresh_scope": {
+      "command": [
+        "/tmp/cjmcp-issue6-verified-312/runtime",
+        "/tmp/cjmcp-issue6-python/cpython-3.12.11-linux-x86_64-gnu/lib/libpython3.12.so.1.0",
+        "repeat",
+        "assert \"previous_request\" not in locals(); previous_request = 1; result = owner.next(); assert result.n > 0"
+      ],
+      "exit": 0,
+      "stdout": "LOADED 3.12.11\nPASS\n",
+      "stderr": ""
+    },
+    "threads_gil": {
+      "command": [
+        "/tmp/cjmcp-issue6-verified-312/runtime",
+        "/tmp/cjmcp-issue6-python/cpython-3.12.11-linux-x86_64-gnu/lib/libpython3.12.so.1.0",
+        "threads",
+        "assert echo(\"thread\") == \"thread\""
+      ],
+      "exit": 0,
+      "stdout": "LOADED 3.12.11\nPASS\n",
+      "stderr": ""
+    },
+    "scope_function": {
+      "command": [
+        "/tmp/cjmcp-issue6-verified-312/runtime",
+        "/tmp/cjmcp-issue6-python/cpython-3.12.11-linux-x86_64-gnu/lib/libpython3.12.so.1.0",
+        "run",
+        "def f(): return owner.next().n\nassert f() == 1"
+      ],
+      "exit": 1,
+      "stdout": "LOADED 3.12.11\n",
+      "stderr": "ExclusiveScopeException: PythonException: PyRunString failed, mode: 257.\nNameError: name 'owner' is not defined\n  File \"<string>\", line 2, in <module>\n  File \"<string>\", line 1, in f\n\n"
+    },
+    "scope_function_adapter": {
+      "command": [
+        "/tmp/cjmcp-issue6-verified-312/runtime",
+        "/tmp/cjmcp-issue6-python/cpython-3.12.11-linux-x86_64-gnu/lib/libpython3.12.so.1.0",
+        "same_dict",
+        "def f(): return owner.next().n\nassert f() == 1"
+      ],
+      "exit": 0,
+      "stdout": "LOADED 3.12.11\nPASS\n",
+      "stderr": ""
+    },
+    "without_outer_gil": {
+      "command": [
+        "/tmp/cjmcp-issue6-verified-312/runtime",
+        "/tmp/cjmcp-issue6-python/cpython-3.12.11-linux-x86_64-gnu/lib/libpython3.12.so.1.0",
+        "without_gil",
+        "assert echo(\"lock\") == \"lock\""
+      ],
+      "exit": 0,
+      "stdout": "LOADED 3.12.11\nPASS\n",
+      "stderr": ""
+    },
+    "registry_release": {
+      "command": [
+        "/tmp/cjmcp-issue6-verified-312/runtime",
+        "/tmp/cjmcp-issue6-python/cpython-3.12.11-linux-x86_64-gnu/lib/libpython3.12.so.1.0",
+        "ownership",
+        ""
+      ],
+      "exit": -11,
+      "stdout": "",
+      "stderr": "3704 E CJNative Handle signal: 11.\n3704 E Thread \"gc-helper\" catched unhandled SIGSEGV (Segmentation fault) from native frame. signal pc: 0x7f2124985553, addr: 0x10\n3704 E   #0  0x7f2124985553 in ? from /tmp/cjmcp-issue6-python/cpython-3.12.11-linux-x86_64-gnu/lib/libpython3.12.so.1.0\n3704 E   #1  0x61a6de in CJ_MCC_C2NStub from /home/filaco/.cjpm/toolchains/nightly-2026-10-14/runtime/lib/linux_x86_64_cjnative/libcangjie-runtime.so\n3704 E   #2  0x7f214e8557c1 in _CN10py_interop9Reference5~initHv at /tmp/cjmcp-issue6-interop312/src/pyobj.cj:150\n3704 E   #3  0x61a533 in ExecuteCangjieStub from /home/filaco/.cjpm/toolchains/nightly-2026-10-14/runtime/lib/linux_x86_64_cjnative/libcangjie-runtime.so\n3704 E   #4  0x66b183 in _ZN12MapleRuntime18FinalizerProcessor19ProcessFinalizablesEv from /home/filaco/.cjpm/toolchains/nightly-2026-10-14/runtime/lib/linux_x86_64_cjnative/libcangjie-runtime.so\n"
+    },
+    "reference_gc": {
+      "command": [
+        "/tmp/cjmcp-issue6-verified-312/runtime",
+        "/tmp/cjmcp-issue6-python/cpython-3.12.11-linux-x86_64-gnu/lib/libpython3.12.so.1.0",
+        "reference_gc",
+        ""
+      ],
+      "exit": -11,
+      "stdout": "",
+      "stderr": "3711 E CJNative Handle signal: 11.\n3711 E Thread \"gc-helper\" catched unhandled SIGSEGV (Segmentation fault) from native frame. signal pc: 0x7f312655c9b9, addr: 0x10\n3711 E   #0  0x7f312655c9b9 in ? from /tmp/cjmcp-issue6-python/cpython-3.12.11-linux-x86_64-gnu/lib/libpython3.12.so.1.0\n3711 E   #1  0x61a6de in CJ_MCC_C2NStub from /home/filaco/.cjpm/toolchains/nightly-2026-10-14/runtime/lib/linux_x86_64_cjnative/libcangjie-runtime.so\n3711 E   #2  0x7f31549737c1 in _CN10py_interop9Reference5~initHv at /tmp/cjmcp-issue6-interop312/src/pyobj.cj:150\n3711 E   #3  0x61a533 in ExecuteCangjieStub from /home/filaco/.cjpm/toolchains/nightly-2026-10-14/runtime/lib/linux_x86_64_cjnative/libcangjie-runtime.so\n3711 E   #4  0x66b183 in _ZN12MapleRuntime18FinalizerProcessor19ProcessFinalizablesEv from /home/filaco/.cjpm/toolchains/nightly-2026-10-14/runtime/lib/linux_x86_64_cjnative/libcangjie-runtime.so\n"
+    },
+    "reference_native": {
+      "command": [
+        "/tmp/cjmcp-issue6-verified-312/runtime",
+        "/tmp/cjmcp-issue6-python/cpython-3.12.11-linux-x86_64-gnu/lib/libpython3.12.so.1.0",
+        "reference_native",
+        ""
+      ],
+      "exit": 0,
+      "stdout": "LOADED 3.12.11\nPASS\n",
+      "stderr": ""
+    },
+    "result_after_request": {
+      "command": [
+        "/tmp/cjmcp-issue6-verified-312/runtime",
+        "/tmp/cjmcp-issue6-python/cpython-3.12.11-linux-x86_64-gnu/lib/libpython3.12.so.1.0",
+        "result_after_request",
+        ""
+      ],
+      "exit": -11,
+      "stdout": "",
+      "stderr": "3722 E CJNative Handle signal: 11.\n3722 E Thread \"gc-helper\" catched unhandled SIGSEGV (Segmentation fault) from native frame. signal pc: 0x7fcf02578521, addr: 0x10\n3722 E   #0  0x7fcf02578521 in ? from /tmp/cjmcp-issue6-python/cpython-3.12.11-linux-x86_64-gnu/lib/libpython3.12.so.1.0\n3722 E   #1  0x61a6de in CJ_MCC_C2NStub from /home/filaco/.cjpm/toolchains/nightly-2026-10-14/runtime/lib/linux_x86_64_cjnative/libcangjie-runtime.so\n3722 E   #2  0x7fcf3082c7c1 in _CN10py_interop9Reference5~initHv at /tmp/cjmcp-issue6-interop312/src/pyobj.cj:150\n3722 E   #3  0x61a533 in ExecuteCangjieStub from /home/filaco/.cjpm/toolchains/nightly-2026-10-14/runtime/lib/linux_x86_64_cjnative/libcangjie-runtime.so\n3722 E   #4  0x66b183 in _ZN12MapleRuntime18FinalizerProcessor19ProcessFinalizablesEv from /home/filaco/.cjpm/toolchains/nightly-2026-10-14/runtime/lib/linux_x86_64_cjnative/libcangjie-runtime.so\n"
+    },
+    "reload": {
+      "command": [
+        "/tmp/cjmcp-issue6-verified-312/runtime",
+        "/tmp/cjmcp-issue6-python/cpython-3.12.11-linux-x86_64-gnu/lib/libpython3.12.so.1.0",
+        "reload",
+        ""
+      ],
+      "exit": -11,
+      "stdout": "LOADED 3.12.11\n",
+      "stderr": "3725 E CJNative Handle signal: 11.\n3725 E Thread \"runtime\" catched unhandled SIGSEGV (Segmentation fault) from native frame. signal pc: 0x7f20ced514b9, addr: 0x7f20d6a23589\n3725 E   #0  0x7f20ced514b9 in PyObject_Call from /tmp/cjmcp-issue6-python/cpython-3.12.11-linux-x86_64-gnu/lib/libpython3.12.so.1.0\n3725 E   #1  0x61a6de in CJ_MCC_C2NStub from /home/filaco/.cjpm/toolchains/nightly-2026-10-14/runtime/lib/linux_x86_64_cjnative/libcangjie-runtime.so\n3725 E   #2  0x7f20ff7dbccb in _CN10py_interop7PyProxy13registerProxyHCNat3AnyEPuEL_E at /tmp/cjmcp-issue6-interop312/src/pyproxy.cj:94\n3725 E   #3  0x7f20ff7dc4bd in _CN10py_interop7withGILICNY_9ReferenceEHF0Y2_EEL_E.7 at /tmp/cjmcp-issue6-interop312/src/pyproxy.cj:81\n3725 E   #4  0x7f20ff7dc3af in _CCN10py_interop7withGILICNY_9ReferenceEHF0Y2_EEL_E.7$g\n3725 E   #5  0x560132b15e86 in _CNatU00000000bbVfJ14ExclusiveScopeIG_E3runHF0G_EEL_E at std/core/exclusive_scope.cj:47\n3725 E   #6  0x560132b15d7c in _CCNatU00000000bbVfJ14ExclusiveScopeIG_E3runHF0G_EEL_E$g\n3725 E   #7  0x560132b156e5 in _CC$Cw$CiF0uvE$i\n3725 E   #8  0x560132b15856 in _CLNatU00000000bbVfJ14ExclusiveScopeIG_E3runHF0G_E$0_\n3725 E   #9  0x560132b157ba in _CCLNatU00000000bbVfJ14ExclusiveScopeIG_E3runHF0G_E$0_$g\n3725 E   #10  0x61aa0c in ExecuteExclusiveCangjieStub from /home/filaco/.cjpm/toolchains/nightly-2026-10-14/runtime/lib/linux_x86_64_cjnative/libcangjie-runtime.so\n"
+    },
+    "unload": {
+      "command": [
+        "/tmp/cjmcp-issue6-verified-312/runtime",
+        "/tmp/cjmcp-issue6-python/cpython-3.12.11-linux-x86_64-gnu/lib/libpython3.12.so.1.0",
+        "unload",
+        "assert record(Entry(1, \"end\")).n == 1"
+      ],
+      "exit": 0,
+      "stdout": "LOADED 3.12.11\nPASS\n",
+      "stderr": ""
+    }
+  },
+  "build": {
+    "command": [
+      "cjc",
+      "/tmp/cjmcp-issue6-verified-312/runtime.cj",
+      "--import-path",
+      "/tmp/cjmcp-issue6-interop312/target/release/py_interop",
+      "-L",
+      "/tmp/cjmcp-issue6-interop312/target/release/py_interop",
+      "-lpy_interop",
+      "--debug-macro",
+      "-Woff",
+      "all",
+      "-o",
+      "/tmp/cjmcp-issue6-verified-312/runtime"
+    ],
+    "exit": 0,
+    "stdout": "",
+    "stderr": ""
+  },
+  "validation_errors": []
+}
